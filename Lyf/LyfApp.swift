@@ -7,9 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct LyfApp: App {
+    // Adiciona o AppDelegate sem mudar nada do body
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -23,6 +27,7 @@ struct LyfApp: App {
         }
     }()
 
+    // Mantém seu body exatamente como está
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -30,3 +35,4 @@ struct LyfApp: App {
         .modelContainer(sharedModelContainer)
     }
 }
+
